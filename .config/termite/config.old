@@ -1,0 +1,39 @@
+[options]
+clickable_url = true
+#font = tewi 9
+font = dejavu sans mono 9
+allow_bold = false
+
+cursor_shape = block
+
+[colors]
+
+# special
+foreground = #ffffff
+background = rgba(0, 0, 0, 0)
+#background = #191919
+
+# black
+color0 =   #191919
+color8 =   #191919
+# red
+color1  =  #9adeea
+color9  =  #9adeea
+# green
+color2 =   #7489a5
+color10 =  #7489a5
+# yellow
+color3 =   #675989
+color11 =  #675989
+# blue
+color4 =   #77238e
+color12 =  #77238e
+# magenta
+color5 =   #9e4770
+color13 =  #9e4770
+# cyan
+color6 =   #d686ca
+color14 =  #d686ca
+# white
+color7 =   #f9f9f9
+color15 =  #f9f9f9

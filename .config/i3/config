@@ -1,0 +1,127 @@
+#################
+### variables ###
+#################
+
+set $mod Mod4
+
+font pango: Tewi 8
+floating_modifier $mod
+
+set $COLOR0	#3e5059
+
+#################
+## i3 bindings ##
+#################
+
+bindsym $mod+q kill
+bindsym $mod+c restart
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+################
+#### colors ####
+################
+
+#client.focused		$COLOR0		$COLOR0		$COLOR0		$COLOR0
+#client.focused_inactive	$COLOR0		$COLOR0		$COLOR0		$COLOR0
+#client.unfocused	$COLOR0		$COLOR0		$COLOR0		$COLOR0
+#client.urgent		$COLOR0		$COLOR0		$COLOR0		$COLOR0
+#client.background	$COLOR0
+
+################################################################################
+#                                    borders                                   #
+################################################################################
+
+#gaps inner 0
+#gaps outer 0
+new_float pixel 0
+new_window pixel 0
+
+################################################################################
+#                                focus bindings                                #
+################################################################################
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+################################################################################
+#                                movement bindings                             #
+################################################################################
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+
+################################################################################
+#                               layout bindings                                #
+################################################################################
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+t split toggle
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+s focus mode_toggle
+floating_modifier $mod
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+################################################################################
+#                                    modes                                     #
+################################################################################
+
+mode "resize" {
+        bindsym h resize shrink width 2 px or 2 ppt
+        bindsym j resize grow height 2 px or 2 ppt
+        bindsym k resize shrink height 2 px or 2 ppt
+        bindsym l resize grow width 2 px or 2 ppt
+
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+################################################################################
+#                                user bindings                                 #
+################################################################################
+bindsym $mod+Return exec termite
+bindsym $mod+space dmenu_run
+bindsym $mod+o exec firefox
+
+exec --no-startup-id hsetroot -solid "#000000"
+exec --no-startup-id compton --config ~/.config/compton.conf -b

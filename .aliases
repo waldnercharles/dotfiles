@@ -1,0 +1,58 @@
+# Color ls
+alias ls="ls --color=auto"
+
+# Better ls
+alias ll="ls -lha"
+
+# Human-readable disk usage
+alias dfh="df -Tha --total"
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+alias whois="whois -h whois-servers.net"
+
+# Processes
+alias psa="ps auxf"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep"'
+
+# History
+alias hig="history | grep"
+
+# Find matching files
+alias lsg='ll | grep'
+
+# Ctags
+alias mktags="ctags --extra=+f -R ."
+
+# Reload shell
+alias reload="exec $SHELL -l"
+
+# Clang Format
+alias cformat='clang-format -style=file -i $(find . -name \*.h -print -o -name \*.cpp -print)'
+
+# Package Management
+alias pacman="sudo pacman --color=always"
+alias update="yaourt -Syua --color always"
+alias install="sudo pacman -S --color always"
+alias remove="sudo pacman -Rcns --color always"
+
+# System Power
+alias shutdown="sudo shutdown -h now"
+alias reboot="sudo reboot"
+
+# Simple Program Aliases
+alias calc="concalc"
+alias irc="weechat"
+alias wifi="sudo wifi-menu"
+alias mtrx="cmatrix"
+
+# Get battery
+alias bat='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
+
+# Get free memory
+alias mem="free -m"
+
+# Get system information
+alias sysinfo="~/.bin/./sysinfo && line"
