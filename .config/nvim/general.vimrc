@@ -15,6 +15,15 @@ set incsearch			" show match while typing
 set hlsearch			" highlight found searches
 set mouse=a			" enable mouse for all modes
 
+" general
+set hidden			" unload buffers when abandoned
+set noswapfile			" disable swapfile
+set nobackup			" disable annoying backup files
+set autowrite			" auto save before :make, :next, etc.
+set noshowmode			" todo: show mode with airline or lightline
+set completeopt=menu,menuone
+set nocursorcolumn		" speed up syntax highlighting
+
 " colors
 syntax enable			" enable syntax highlighting
 
@@ -23,12 +32,17 @@ set tabstop=8			" tabs are 8 columns
 set softtabstop=8		" indentation levels are 8 columns
 set noexpandtab			" use tabs instead of spaces
 
-" ui layout
+" ui
 set number			" show line numbers
 set showcmd			" show command in bottom bar
 set nocursorline		" highlight current line
 set wildmenu			" enable menu for command line completion
-set showmatch			" highlight matching parenthesis
+set noshowmatch			" do not show matching brackets by flickering
+set noerrorbells  		" no beeps
+set novisualbell		" no visual beeping
+set splitright			" split vertical windows to the right of current window
+set splitbelow			" split horizontal windows below current window
+set pumheight=10		" max completion window size
 
 " searching
 set ignorecase			" ignore case when searching...
