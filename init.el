@@ -14,21 +14,27 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(use-package evil-leader
+	:config
+	(global-evil-leader-mode)
+	(setq evil-leader/in-all-states t))
+
+(use-package evil)
+
 (use-package company
 	:ensure t
-	:init
-	(global-company-mode)
 	:config
+	(global-company-mode)
 	(add-to-list 'company-backends 'company-omnisharp))
 	
 (use-package csharp-mode
 	:ensure t
-	:init
+	:config
 	(add-hook 'csharp-mode-hook 'omnisharp-mode))
 
 (use-package omnisharp
 	:ensure t
-	:init
+	:config
 	(setq omnisharp-curl-executable-path "/usr/bin/curl")
 	(setq omnisharp-server-executable-path (expand-file-name "~/git/omnisharp-server/OmniSharp/bin/Release/OmniSharp.exe")))
 	
