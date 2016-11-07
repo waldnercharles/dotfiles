@@ -1,5 +1,5 @@
 (setq user-full-name "Charles Waldner")
-(setq	user-mail-address "waldner.charles@gmail.com")
+(setq user-mail-address "waldner.charles@gmail.com")
 
 (require 'cl-lib)
 (require 'package)
